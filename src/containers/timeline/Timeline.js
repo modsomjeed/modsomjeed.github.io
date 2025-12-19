@@ -1,8 +1,8 @@
-import React, { useState, useMemo } from "react";
+import React, {useState, useMemo} from "react";
 import "./Timeline.scss";
 import TimelineItem from "../../components/timelineItem/TimelineItem";
-import { timelineData, tagDefinitions } from "../../data/timelineData";
-import { FaSearch } from "react-icons/fa";
+import {timelineData, tagDefinitions} from "../../data/timelineData";
+import {FaSearch} from "react-icons/fa";
 
 export default function Timeline() {
   const [selectedTags, setSelectedTags] = useState([]);
@@ -11,21 +11,21 @@ export default function Timeline() {
   const allTags = Object.keys(tagDefinitions);
 
   const filteredData = useMemo(() => {
-    return timelineData.filter((item) => {
+    return timelineData.filter(item => {
       // Filter by tags
       const tagMatch =
         selectedTags.length === 0 ||
-        item.tags.some((tag) => selectedTags.includes(tag));
+        item.tags.some(tag => selectedTags.includes(tag));
 
       // Filter by search query
       const searchMatch =
         !searchQuery ||
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.projectDetail.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.tools.some((tool) =>
+        item.tools.some(tool =>
           tool.toLowerCase().includes(searchQuery.toLowerCase())
         ) ||
-        item.skills.some((skill) =>
+        item.skills.some(skill =>
           skill.toLowerCase().includes(searchQuery.toLowerCase())
         );
 
@@ -33,9 +33,9 @@ export default function Timeline() {
     });
   }, [selectedTags, searchQuery]);
 
-  const handleTagToggle = (tag) => {
-    setSelectedTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+  const handleTagToggle = tag => {
+    setSelectedTags(prev =>
+      prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
     );
   };
 
@@ -55,14 +55,11 @@ export default function Timeline() {
             type="text"
             placeholder="Search by title, tools, skills..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={e => setSearchQuery(e.target.value)}
             className="search-input"
           />
           {searchQuery && (
-            <button
-              className="search-clear"
-              onClick={() => setSearchQuery("")}
-            >
+            <button className="search-clear" onClick={() => setSearchQuery("")}>
               ✕
             </button>
           )}
@@ -71,19 +68,23 @@ export default function Timeline() {
         {/* Tag Filters */}
         <div className="tag-filters">
           <button
-            className={`tag-button ${selectedTags.length === 0 ? "active" : ""}`}
+            className={`tag-button ${
+              selectedTags.length === 0 ? "active" : ""
+            }`}
             onClick={() => setSelectedTags([])}
           >
             All
           </button>
-          {allTags.map((tag) => (
+          {allTags.map(tag => (
             <button
               key={tag}
-              className={`tag-button ${selectedTags.includes(tag) ? "active" : ""}`}
+              className={`tag-button ${
+                selectedTags.includes(tag) ? "active" : ""
+              }`}
               style={
                 selectedTags.includes(tag)
-                  ? { backgroundColor: tagDefinitions[tag].color, color: "#fff" }
-                  : { borderColor: tagDefinitions[tag].color }
+                  ? {backgroundColor: tagDefinitions[tag].color, color: "#fff"}
+                  : {borderColor: tagDefinitions[tag].color}
               }
               onClick={() => handleTagToggle(tag)}
             >

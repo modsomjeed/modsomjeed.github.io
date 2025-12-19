@@ -1,11 +1,11 @@
 import React from "react";
 import "./ProjectDetailModal.scss";
-import { tagDefinitions } from "../../data/timelineData";
+import {tagDefinitions} from "../../data/timelineData";
 
-export default function ProjectDetailModal({ item, onClose }) {
+export default function ProjectDetailModal({item, onClose}) {
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>
           ✕
         </button>
@@ -15,11 +15,11 @@ export default function ProjectDetailModal({ item, onClose }) {
           <h1>{item.title}</h1>
           <p className="modal-date">{item.dateRange}</p>
           <div className="modal-tags">
-            {item.tags.map((tag) => (
+            {item.tags.map(tag => (
               <span
                 key={tag}
                 className="tag-badge"
-                style={{ backgroundColor: tagDefinitions[tag].color }}
+                style={{backgroundColor: tagDefinitions[tag].color}}
               >
                 #{tagDefinitions[tag].label}
               </span>
@@ -60,7 +60,7 @@ export default function ProjectDetailModal({ item, onClose }) {
               <div className="skill-group">
                 <h5>Tools</h5>
                 <div className="skill-list">
-                  {item.tools.map((tool) => (
+                  {item.tools.map(tool => (
                     <span key={tool} className="skill-item">
                       {tool}
                     </span>
@@ -70,7 +70,7 @@ export default function ProjectDetailModal({ item, onClose }) {
               <div className="skill-group">
                 <h5>Skills</h5>
                 <div className="skill-list">
-                  {item.skills.map((skill) => (
+                  {item.skills.map(skill => (
                     <span key={skill} className="skill-item">
                       {skill}
                     </span>

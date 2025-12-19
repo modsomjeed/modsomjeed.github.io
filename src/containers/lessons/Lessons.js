@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "./Lessons.scss";
-import { getAllLessons } from "../../data/timelineData";
+import {getAllLessons} from "../../data/timelineData";
 
 export default function Lessons() {
-  const { allLessons, categorized } = getAllLessons();
+  const {allLessons, categorized} = getAllLessons();
   const [activeCategory, setActiveCategory] = useState("All");
 
   const categories = [
@@ -33,7 +33,7 @@ export default function Lessons() {
 
       {/* Category Filter */}
       <div className="category-filters">
-        {categories.map((cat) => (
+        {categories.map(cat => (
           <button
             key={cat}
             className={`category-btn ${activeCategory === cat ? "active" : ""}`}
@@ -64,7 +64,7 @@ export default function Lessons() {
               <div className="lesson-meta">
                 <span className="lesson-source">From: {lesson.source}</span>
                 <div className="lesson-tags">
-                  {lesson.tags.map((tag) => (
+                  {lesson.tags.map(tag => (
                     <span key={tag} className="tag">
                       #{tag}
                     </span>
@@ -92,14 +92,15 @@ export default function Lessons() {
             <div className="stat-number">{Object.keys(categorized).length}</div>
             <div className="stat-label">Categories</div>
           </div>
-          {Object.entries(categorized).map(([cat, lessons]) => (
-            lessons.length > 0 && (
-              <div key={cat} className="stat">
-                <div className="stat-number">{lessons.length}</div>
-                <div className="stat-label">{cat}</div>
-              </div>
-            )
-          ))}
+          {Object.entries(categorized).map(
+            ([cat, lessons]) =>
+              lessons.length > 0 && (
+                <div key={cat} className="stat">
+                  <div className="stat-number">{lessons.length}</div>
+                  <div className="stat-label">{cat}</div>
+                </div>
+              )
+          )}
         </div>
       </div>
     </div>

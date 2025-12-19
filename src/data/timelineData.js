@@ -17,10 +17,14 @@ export const timelineData = [
       "Vertical timeline layout provides better storytelling"
     ],
     links: [
-      { label: "Live", url: "https://modsomjeed.github.io" },
-      { label: "GitHub", url: "https://github.com/modsomjeed/modsomjeed.github.io" }
+      {label: "Live", url: "https://modsomjeed.github.io"},
+      {
+        label: "GitHub",
+        url: "https://github.com/modsomjeed/modsomjeed.github.io"
+      }
     ],
-    impact: "Improved personal brand presence and makes it easier to showcase achievements",
+    impact:
+      "Improved personal brand presence and makes it easier to showcase achievements",
     context:
       "Realized need for a better way to document and present technical work and learnings",
     whatYouDid:
@@ -35,18 +39,22 @@ export const timelineData = [
     projectDetail:
       "Led frontend improvements for an e-commerce platform serving 10K+ daily users. Implemented performance optimizations and new features.",
     tools: ["React", "TypeScript", "Redux", "Jest", "GraphQL"],
-    skills: ["React", "TypeScript", "Performance Optimization", "Team Leadership"],
+    skills: [
+      "React",
+      "TypeScript",
+      "Performance Optimization",
+      "Team Leadership"
+    ],
     lessons: [
       "Clear communication with cross-functional teams reduces rework",
       "Implementing measurements first guides optimization efforts",
       "User feedback loops are crucial for prioritization"
     ],
-    links: [
-      { label: "Case Study", url: "#" }
-    ],
+    links: [{label: "Case Study", url: "#"}],
     impact:
       "Reduced page load time by 40%, increased user engagement by 25%, achieved 98% Lighthouse score",
-    context: "Client platform was experiencing slowdowns during peak traffic periods",
+    context:
+      "Client platform was experiencing slowdowns during peak traffic periods",
     whatYouDid:
       "Identified bottlenecks, implemented code splitting, optimized images, refactored Redux selectors, mentored team on performance best practices"
   },
@@ -65,9 +73,7 @@ export const timelineData = [
       "Good documentation is as important as good code",
       "Storybook-driven development catches edge cases early"
     ],
-    links: [
-      { label: "Storybook", url: "#" }
-    ],
+    links: [{label: "Storybook", url: "#"}],
     impact:
       "Reduced component creation time by 60%, improved consistency across 5+ projects, served 30+ developers",
     context:
@@ -83,19 +89,28 @@ export const timelineData = [
     type: "work",
     projectDetail:
       "Coordinated migration of native iOS/Android apps to React Native with a team of 4 developers.",
-    tools: ["React Native", "Expo", "TypeScript", "Firebase", "React Navigation"],
-    skills: ["React Native", "Cross-platform Development", "Project Coordination"],
+    tools: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Firebase",
+      "React Navigation"
+    ],
+    skills: [
+      "React Native",
+      "Cross-platform Development",
+      "Project Coordination"
+    ],
     lessons: [
       "Code sharing between platforms is powerful but requires discipline",
       "Platform-specific differences still require specialized knowledge",
       "Gradual migration reduces risk better than big-bang rewrites"
     ],
-    links: [
-      { label: "App Store", url: "#" }
-    ],
+    links: [{label: "App Store", url: "#"}],
     impact:
       "Reduced development time by 40%, improved code maintainability, expanded team's mobile capabilities",
-    context: "Maintaining separate iOS and Android codebases was becoming expensive and slow",
+    context:
+      "Maintaining separate iOS and Android codebases was becoming expensive and slow",
     whatYouDid:
       "Led migration planning, established code organization patterns, built shared utilities, managed team coordination"
   },
@@ -114,9 +129,7 @@ export const timelineData = [
       "Optimistic updates improve perceived performance",
       "Testing real-time features requires different strategies than traditional testing"
     ],
-    links: [
-      { label: "Demo", url: "#" }
-    ],
+    links: [{label: "Demo", url: "#"}],
     impact:
       "Enabled new collaboration workflows, increased user retention by 15%, opened new product capabilities",
     context:
@@ -128,14 +141,26 @@ export const timelineData = [
 
 // Category definitions for filtering
 export const tagDefinitions = {
-  self: { label: "Self Projects", color: "#FF6B6B", description: "Personal projects" },
+  self: {
+    label: "Self Projects",
+    color: "#FF6B6B",
+    description: "Personal projects"
+  },
   team: {
     label: "Team Work",
     color: "#4ECDC4",
     description: "Collaborative team projects"
   },
-  ODT: { label: "ODT (On-the-Job Training)", color: "#45B7D1", description: "Learning projects" },
-  client: { label: "Client Work", color: "#FFA07A", description: "Client-facing projects" }
+  ODT: {
+    label: "ODT (On-the-Job Training)",
+    color: "#45B7D1",
+    description: "Learning projects"
+  },
+  client: {
+    label: "Client Work",
+    color: "#FFA07A",
+    description: "Client-facing projects"
+  }
 };
 
 // Lesson categories for the Lessons Learned page
@@ -150,10 +175,10 @@ export const lessonCategories = {
 // Extract and categorize lessons
 export const getAllLessons = () => {
   const allLessons = [];
-  const categorized = { ...lessonCategories };
+  const categorized = {...lessonCategories};
 
-  timelineData.forEach((item) => {
-    item.lessons.forEach((lesson) => {
+  timelineData.forEach(item => {
+    item.lessons.forEach(lesson => {
       const lessonObj = {
         text: lesson,
         source: item.title,
@@ -188,5 +213,5 @@ export const getAllLessons = () => {
     });
   });
 
-  return { allLessons, categorized };
+  return {allLessons, categorized};
 };

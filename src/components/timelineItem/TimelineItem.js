@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "./TimelineItem.scss";
-import { tagDefinitions } from "../../data/timelineData";
+import {tagDefinitions} from "../../data/timelineData";
 import ProjectDetailModal from "../projectDetailModal/ProjectDetailModal";
 
-export default function TimelineItem({ item, index }) {
+export default function TimelineItem({item, index}) {
   const [showDetail, setShowDetail] = useState(false);
 
   return (
@@ -23,11 +23,11 @@ export default function TimelineItem({ item, index }) {
 
           {/* Tags */}
           <div className="timeline-tags">
-            {item.tags.map((tag) => (
+            {item.tags.map(tag => (
               <span
                 key={tag}
                 className="tag-badge"
-                style={{ backgroundColor: tagDefinitions[tag].color }}
+                style={{backgroundColor: tagDefinitions[tag].color}}
               >
                 #{tagDefinitions[tag].label}
               </span>
@@ -42,7 +42,7 @@ export default function TimelineItem({ item, index }) {
             <div className="skill-group">
               <h5>Tools:</h5>
               <div className="skill-chips">
-                {item.tools.map((tool) => (
+                {item.tools.map(tool => (
                   <span key={tool} className="skill-chip">
                     {tool}
                   </span>
@@ -52,7 +52,7 @@ export default function TimelineItem({ item, index }) {
             <div className="skill-group">
               <h5>Skills:</h5>
               <div className="skill-chips">
-                {item.skills.map((skill) => (
+                {item.skills.map(skill => (
                   <span key={skill} className="skill-chip">
                     {skill}
                   </span>
