@@ -1,0 +1,277 @@
+@import "../../_globalColor";
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    max-height: 95vh;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: $secondaryTextColor;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 10;
+
+  &:hover {
+    color: $textColor;
+  }
+}
+
+.modal-header {
+  padding: 40px 32px 32px;
+  border-bottom: 1px solid $lightBorder1;
+
+  h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: $textColor;
+    margin-bottom: 12px;
+  }
+
+  .modal-date {
+    font-size: 14px;
+    color: $highlightColor;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .tag-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 32px 20px 24px;
+
+    h1 {
+      font-size: 24px;
+    }
+  }
+}
+
+.modal-body {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+}
+
+.modal-section {
+  margin-bottom: 32px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: $textColor;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: $highlightColor;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: $secondaryTextColor;
+  }
+}
+
+.impact-section {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid $highlightColor;
+
+  .impact-text {
+    font-weight: 500;
+    color: $textColor;
+  }
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-group {
+    h5 {
+      font-size: 12px;
+      font-weight: 700;
+      color: $textColor;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .skill-item {
+      display: inline-block;
+      padding: 8px 14px;
+      background-color: $lightBackground;
+      color: $textColor;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid $lightBorder1;
+    }
+  }
+}
+
+.lessons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    font-size: 16px;
+    color: $secondaryTextColor;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    padding-left: 24px;
+    position: relative;
+
+    &::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: $highlightColor;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.links-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  .resource-link {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: $highlightColor;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: darken($highlightColor, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+.modal-footer {
+  padding: 20px 32px;
+  border-top: 1px solid $lightBorder1;
+  display: flex;
+  justify-content: flex-end;
+
+  @media (max-width: 768px) {
+    padding: 16px 20px;
+  }
+
+  .btn-close {
+    padding: 12px 24px;
+    background-color: $lightBorder1;
+    color: $textColor;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: darken($lightBorder1, 10%);
+    }
+  }
+}
